@@ -19,14 +19,19 @@
 				<div class="col-12 user-img">
 					<img src="static/img/user.png"/>	
 					</div>
+
+					<div id="mensaje"></div>
+
 					<from class="col-12">
 						<div class="form-group">
-							<input type="text" class="form-control mb-2 mr-sm-2" id="user-group" placeholder="usuario">
+							<input type="text" id="usuario" value="otro valor" class="form-control mb-2 mr-sm-2" id="user-group" placeholder="usuario">
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control mb-2 mr-sm-2" id="contrasena-gro" placeholder="contrasena">
+							<input type="password" id="password" value="sdfsdfsdfds" class="form-control mb-2 mr-sm-2" id="contrasena-gro" placeholder="contrasena">
 						</div>
-						<button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+						<button id="btn_ingresar" type="button" class="btn btn-primary">
+							<i class="fas fa-sign-in-alt"></i>  Ingresar 
+						</button>
 					</from>
 				<div class="col-12 forgot">
 						<a href="#">recordar contrasena</a> 
@@ -34,7 +39,44 @@
   					
 		</div>
 	</div>
-	<button>  entrar </button>
+
 </div>
+
+
+<script type="text/javascript">
+
+	// esta es la funcion inicial
+	let inicio = () => {
+		$('#usuario').val('admin')
+		$('#password').val('root')
+	}
+
+	// este es el evento para ejecutar el ready del cocument
+	$(document).ready(() => {
+		inicio()
+
+		$('#btn_ingresar').click( () => {
+			let usu = $('#usuario').val()
+			let pass = $('#password').val()
+			
+			validar(usu, pass)
+		})
+
+		let validar = (usu1, pass1) => {
+			let texto = ''
+			$('#mensaje').html('')
+			if( usu1 != 'admin') {
+				texto = '<div class="alert alert-warning">usuario incorecto</div>'
+
+				$('#mensaje').html(texto)
+			}
+		}
+
+	})
+
+
+</script>
+
+
 </body>
 </html>
