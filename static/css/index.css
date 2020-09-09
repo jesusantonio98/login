@@ -38,7 +38,7 @@ body{
 		padding-top:4px;
 }
 .form-group#user-group::before{
-	content: "\f007";  
+	content: "\f007";
 }
 
 .form-group#contrasena-group::before{
