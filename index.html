@@ -29,7 +29,7 @@
 						<div class="form-group">
 							<input type="password" id="password" value="sdfsdfsdfds" class="form-control mb-2 mr-sm-2" id="contrasena-gro" name="password" placeholder="contrasena">
 						</div>
-						<button id="btn_ingresar" type="button" onclick="ver_login()" class="btn btn-primary">
+						<button id="btn_ingresar" type="button" class="btn btn-primary">
 							<i class="fas fa-sign-in-alt"></i>  Ingresar
 						</button>
 					</from>
@@ -44,18 +44,6 @@
 
 
 <script type="text/javascript">
-
-	function ver_login() {
-  var username = document.getElementsById("usuario").value;
-	var contraseña = document.getElementsById("usuario").value;
-
-  if( username == 'crisstianca' && password =='america') {
-    alert("Usuario Correcto");
-  }
-	else{
-		alert("Usuario incorecto");
-	}
-}
 
 	// esta es la funcion inicial
 	let inicio = () => {
@@ -77,16 +65,16 @@
 		let validar = (usu1, pass1) => {
 			let texto = ''
 			$('#mensaje').html('')
-			if( usu1 != 'Crisstainca' && pass1!='america') {
-				texto = '<div class="alert alert-warning">usuario incoreecto</div>'
+			if( usu1 == 'Crisstainca' && pass1 =='america') {
+				texto = '<div class="alert alert-warning">usuario correcto</div>'
 
-				$('#mensaje').html(texto)
+				alert("Bienvenido " + usu1);
 			}
 			else{
-					texto = '<div class="alert alert-warning">usuario coreecto</div>'
-					$('#mensaje').html(texto)
-					alert("Bienvenido " + usu1);
+					texto = '<div class="alert alert-warning">usuario incorrecto</div>'
+								
 			}
+				$('#mensaje').html(texto)
 		}
 
 	})
