@@ -11,7 +11,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-
 </head>
 <body>
 	<div class="modal-dialog text-center">
@@ -25,7 +24,7 @@
 
 					<from class="col-12">
 						<div class="form-group">
-							<input type="text" id="usuario" value="otro valor" class="form-control mb-2 mr-sm-2" id="user-group" name ="username" autocomplete="off" placeholder="usuario" onInput="validarInput()">
+							<input type="text" id="usuario" value="otro valor" class="form-control mb-2 mr-sm-2" id="user-group" name ="username" autocomplete="off" placeholder="usuario">
 						</div>
 						<div class="form-group">
 							<input type="password" id="password" value="sdfsdfsdfds" class="form-control mb-2 mr-sm-2" id="contrasena-gro" name="password" placeholder="contrasena">
@@ -40,12 +39,9 @@
 				<div class="col-12 forgot">
 						<a href="#">recordar contrasena</a>
   			</div>
-
 		</div>
 	</div>
-
 </div>
-
 
 <script type="text/javascript">
 
@@ -93,21 +89,18 @@
  };
 
 $(document).ready(function(){
-     $('button[type="summit"]').attr('disabled','disabled');
-     $('input[type="text"]' && 'input[type="password"]').keypress(function(){
-            if($(this).val() != ''){
+     $('button[type="summit"]').attr('disabled','false');
+     $('input[type="text"]' && 'input[type="password"]').keyup(function(){
+            if($('input[type="text"]').val() !='' && $('input[type="password"]').val() != ''){
                $('button[type="submit"]').removeAttr('disabled' , false);
             }
 						else{
-
 								$('button[type="submit"]').attr('disabled', true);
 						}
      });
  });
 
-
 </script>
-
 
 </body>
 </html>
