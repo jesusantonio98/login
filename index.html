@@ -24,23 +24,25 @@
 
 					<from class="col-12">
 						<div class="form-group">
-							<input type="text" id="usuario" value="otro valor" class="form-control mb-2 mr-sm-2" id="user-group" name ="username" autocomplete="off" placeholder="usuario">
+							<input type="text" id="usuario" value="otro valor" class="form-control mb-2 mr-sm-2" name ="username" autocomplete="off" placeholder="usuario">
 						</div>
 						<div class="form-group">
-							<input type="password" id="password" value="sdfsdfsdfds" class="form-control mb-2 mr-sm-2" id="contrasena-gro" name="password" placeholder="contrasena">
+							<input type="password" id="password" value="sdfsdfsdfds" class="form-control mb-2 mr-sm-2" name="password" placeholder="contrasena">
 						</div>
 						<div class="col">
   					  <button class="btn btn-primary" type="button" style="height:30px; width:30px;" onclick="mostrarContrasena()">*</button>
 						</div>
-						<button id="btn_ingresar" type="submit" disabled="true" class="btn btn-primary">
+						<button id="btn_ingresar" type="submit" class="btn btn-primary">
 							<i class="fas fa-sign-in-alt"></i>  Ingresar
 						</button>
 					</from>
 				<div class="col-12 forgot">
 						<a href="#">recordar contrasena</a>
   			</div>
+
 		</div>
 	</div>
+
 </div>
 
 <script type="text/javascript">
@@ -88,17 +90,26 @@
 		 }
  };
 
-$(document).ready(function(){
-     $('button[type="summit"]').attr('disabled','false');
-     $('input[type="text"]' && 'input[type="password"]').keyup(function(){
-            if($('input[type="text"]').val() !='' && $('input[type="password"]').val() != ''){
-               $('button[type="submit"]').removeAttr('disabled' , false);
-            }
-						else{
-								$('button[type="submit"]').attr('disabled', true);
-						}
-     });
+//Aqui se habilita y deshabilita el boton Ingresar
+ $(document).ready(function(){
+	 let b_ingresar = $('#btn_ingresar')
+	 let user = $('#usuario')
+	 let pasw = $('#password')
+
+ 	 b_ingresar.attr('disabled','false');
+   $(this).keyup(function(){
+   	if(user.val() !='' && pasw.val() != ''){
+    	 b_ingresar.removeAttr('disabled' , false);
+    }
+		else{
+			 b_ingresar.attr('disabled', true);
+		}
+	 });
  });
+
+ function validarInput() {
+  document.getElementById("btn_ingresar").disabled = !document.getElementById("quanti").value.length;
+}
 
 </script>
 
