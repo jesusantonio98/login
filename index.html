@@ -96,14 +96,21 @@
 		let user = $('#usuario')
 		let pasw = $('#password')
 
-		b_ingresar.attr('disabled','false');
-		$(this).keyup(function(){
+		function validarInput(){
 			if(user.val() !='' && pasw.val() != ''){
-				b_ingresar.removeAttr('disabled' , false);
+				b_ingresar.removeAttr('disabled' , false)
 			}
 			else{
-				b_ingresar.attr('disabled', true);
+				b_ingresar.attr('disabled', true)
 			}
+		}
+
+		b_ingresar.attr('disabled','false')
+		user.keyup(function(){
+			validarInput()
+		});
+		pasw.keyup(function(){
+			validarInput()
 		});
 	});
 
