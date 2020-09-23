@@ -55,6 +55,7 @@
 
 	// este es el evento para ejecutar el ready del cocument
 	$(document).ready(() => {
+		verif_sesion()
 		inicio()
 
 		$('#btn_ingresar').click( () => {
@@ -71,15 +72,33 @@
 				texto = '<div class="alert alert-warning">usuario correcto</div>'
 
 				alert("Bienvenido " + usu1);
+				localStor()
+				location.href='inicio.html'
 			}
 			else{
 				texto = '<div class="alert alert-warning">usuario incorrecto</div>'
-
 			}
 			$('#mensaje').html(texto)
 		}
-
 	})
+
+	//Esta funcion guarda mis datos en localStorage
+	function localStor(){
+			let user_local = Array(
+				{
+					usuario_local : usuario.value,
+					password_local : password.value
+				}
+			)
+			localStorage.setItem('user',JSON.stringify(user_local))
+	}
+
+	function verif_sesion(){
+		let getlocal = localStorage.getItem("user");
+		if(getlocal != null){
+			location.href='inicio.html'
+		}
+	}
 
 	function mostrarContrasena(){
 		var tipo = document.getElementById("password");
